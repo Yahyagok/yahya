@@ -16,21 +16,19 @@ class Adviser < ActiveRecord::Base
 
 
 
-    # def helper_method
+    def helper_method
       
-    #     #binding.pry
-    #     School.all.map do |school|
-    #         school.city
-    #     end 
-    # end 
+        #binding.pry
+        School.all.select do |school|
+            school.adviser == self 
+        end 
+    end 
 
-    # def num_of_parks_that_adviser
-
-    #     helper_method.map do |city|
-            
-    #         city.name
-    #     end 
-    # end 
+    def num_of_parks_that_adviser
+        helper_method.map do |school|
+            school.city
+        end 
+    end 
 
     
     def my_schools 
